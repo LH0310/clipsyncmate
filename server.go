@@ -71,6 +71,9 @@ func sendWsMessage() {
 
 func recveveWsMessage() {
 	for {
+		if wsConnection == nil {
+			return
+		}
 		_, msg, err := wsConnection.ReadMessage()
 		if err != nil {
 			log.Println(err)
